@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Editor</title>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/taboverride.js"></script>
+<script type="text/javascript" src="scripts/jade.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+<style type="text/css">
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:focus {
+  outline: 0;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.row {
+  height: 100%;
+}
+textarea {
+  resize: none;
+  width: 50%;
+  height: 100%;
+  padding: 20px 25px;
+  font-family: monospace;
+  font-size: 16px;
+  line-height: 22px;
+  background: #272822;
+  color: #ead972;
+  border: 0 none;
+  float: left;
+}
+.jade {
+  border-right: 8px solid #3f3d32;
+}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <textarea class="jade"></textarea>
+  <textarea class="html"></textarea>
+</div>
+
+</body>
+</html>
