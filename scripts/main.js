@@ -1,45 +1,46 @@
 (function() {
-
   $(function() {
+
+    // Necessary vars.
     var isFixed, jade2html, navTop, update;
+    var input  = $('#input');
+    var output = $('#output');
+    var textareas = $('textarea');
+
+    // Function for compiling the Jade markup.
     jade2html = function(input, data) {
       return jade.compile(input, {
         pretty: true,
         doctype: '5'
       })(data);
     };
+
+    // Function for updating the output.
     update = function($jade) {
-      var $data, $html, data, html, input, json;
-      $data = $jade.siblings('.json');
-      json = $data.val() || '{}';
-      $html = $jade.closest('.row').find('textarea.html');
-      $jade.closest('.row').find('textarea').removeClass('error');
+      console.log('Updating');
+      var data, html;
+      textareas.removeClass('error');
       try {
-        data = JSON.parse(json);
-      } catch (error) {
-        $data.addClass('error');
-        $html.val('[json] ' + error.message).addClass('error');
+        html = jade2html(input.val(), data);
+      }
+      catch (error) {
+        input.addClass('error');
+        output.val('[jade] ' + error.message).addClass('error');
         return;
       }
-      input = $jade.val();
-      try {
-        html = jade2html(input, data);
-      } catch (error) {
-        $jade.addClass('error');
-        $html.val('[jade] ' + error.message).addClass('error');
-        return;
-      }
-      html = html.trim();
-      return $html.val(html);
+      return output.val(html.trim());
     };
-    $('textarea.jade').each(function() {
-      return update($(this).on('keyup', function() {
-        return update($(this));
-      }));
+
+    // Whenever something is entered in the source textarea, update the output
+    // automatically.
+    input.on('keyup', function() {
+      return update($(this));
     });
+
+    // Override the tabs in editor textareas.
     $.fn.tabOverride.autoIndent = true;
     $.fn.tabOverride.tabSize(2);
     $('textarea').tabOverride();
-  });
 
+  });
 }).call(this);
