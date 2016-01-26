@@ -40,9 +40,44 @@ textarea {
 #input {
   border-right: 8px solid #3f3d32;
 }
+#info {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -160px;
+  width: 320px;
+  padding: 20px 30px;
+  background: #3f3d32;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 18px;
+  font-family: monospace;
+}
+#info-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #FFF;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+#info-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
 </style>
 </head>
 <body>
+
+<div id="info">
+  <button id="info-close" aria-label="Close">&times;</button>
+  Enter Jade code on the left and the editor will automatically convert it to HTML on the right.
+</div>
 
 <div class="row">
   <textarea id="input" autofocus></textarea>

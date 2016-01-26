@@ -42,5 +42,10 @@
     $.fn.tabOverride.tabSize(2);
     $('textarea').tabOverride();
 
+    // Remove the info box.
+    $('#info-close').click(function() {
+      $('#info').remove();
+    });
+
   });
 }).call(this);
