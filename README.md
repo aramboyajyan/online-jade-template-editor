@@ -11,7 +11,7 @@ http://aramboyajyan.github.io/online-jade-template-editor
 - [Jade](http://jade-lang.com/) for template parsing
 - [jQuery](http://jquery.com/)
 - [TabOverride plugin for jQuery](https://github.com/wjbryant/taboverride)
-- UI inspired by Monokai theme for Sublime Text
+- UI inspired by Monokai theme for [Sublime Text](http://www.sublimetext.com/)
 
 <hr>
 
