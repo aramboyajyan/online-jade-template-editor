@@ -31,9 +31,18 @@
       return output.val(html.trim());
     };
 
+    // Remove the info box.
+    var $infoClose = $('#info-close');
+    $infoClose.click(function() {
+      $('#info').remove();
+    });
+
     // Whenever something is entered in the source textarea, update the output
     // automatically.
-    input.on('keyup', function() {
+    input.on('keyup', function(e) {
+      if (e.which == 27) {
+        $infoClose.click();
+      }
       return update($(this));
     });
 
@@ -41,11 +50,6 @@
     $.fn.tabOverride.autoIndent = true;
     $.fn.tabOverride.tabSize(2);
     $('textarea').tabOverride();
-
-    // Remove the info box.
-    $('#info-close').click(function() {
-      $('#info').remove();
-    });
 
   });
 }).call(this);
